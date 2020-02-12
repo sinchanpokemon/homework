@@ -49,16 +49,16 @@ functions:
   # - cors: enabled CORS (Cross-Origin Resource Sharing) for browser cross
   #     domain api call
   # - authorizer: authenticate using the AWS IAM role
-  create:
+  addparentprofile:
     handler: addparentprofile.handler
     events:
       - http:
-          path: parent
+          path: parentdata
           method: post
           cors: true
           authorizer: aws_iam
 
 # Create our resources with separate CloudFormation templates
-resources:
+    resources:
   # API Gateway Errors
-  - ${file(resources/api-gateway-errors.yml)}
+       - ${file(resources/api-gateway-errors.yml)}
